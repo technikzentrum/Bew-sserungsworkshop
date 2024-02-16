@@ -85,3 +85,37 @@ Dieser Workshop zielt darauf ab, Lehrenden ohne Vorkenntnisse die Grundlagen der
 
 5. **Status aktualisieren:**
    - Nach dem Wechsel des Bildes aktualisieren Sie den "status" mit dem neuen Wert, um das zuletzt angezeigte Bild zu speichern, also aus "Variablen" das "setze status auf".
+
+### Aufgabe 5: Hinzufügen eines dritten Bildschirms und Durchführung einer Rotation mit Tastendrücken
+
+In dieser Aufgabe werden die Teilnehmer lernen, wie sie einen dritten Bildschirm in ihre bestehende Schaltung integrieren und eine Rotation zwischen den drei Bildschirmen durch Tastendrücke ermöglichen können. Dies erfordert eine Erweiterung der logischen Abfrage, um eine zusätzliche Bedingung für das dritte Bild zu berücksichtigen.
+
+#### Schritt-für-Schritt-Anleitung
+
+1. **Erweiterung der logischen Abfrage:**
+   - Gehen Sie zu Ihrem bestehenden "wenn ... dann ... sonst ..." Block.
+   - Klicken Sie auf das Zahnrad-Symbol am Block, um die Blockstruktur anzupassen.
+   - Fügen Sie ein "sonst wenn" hinzu, um eine weitere Bedingung für das dritte Bild zu schaffen.
+
+2. **Konfiguration der neuen Bedingung:**
+   - Stellen Sie innerhalb des "sonst wenn" Blocks die Bedingung ein, die überprüft, welches Bild zuletzt angezeigt wurde und ob nun das dritte Bild angezeigt werden soll.
+   - Sie können dies tun, indem Sie die Variable "status" mit einem neuen Wert vergleichen, der dem dritten Bild zugeordnet ist (zum Beispiel "2" für das dritte Bild).
+
+3. **Hinzufügen des dritten Bildschirms:**
+   - Platzieren Sie innerhalb des "sonst wenn" Blocks einen weiteren LED-Matrix-Block, um das dritte Bild zu definieren und anzuzeigen.
+
+4. **Aktualisierung der Statusvariable:**
+   - Nachdem das dritte Bild angezeigt wurde, müssen Sie sicherstellen, dass der "status" entsprechend aktualisiert wird, um den aktuellen Zustand zu reflektieren.
+   - Fügen Sie nach dem Anzeigen des dritten Bildes einen Block hinzu, um "status" auf den nächsten Wert zu setzen, der den Beginn der Rotation zurück zum ersten Bild signalisiert.
+
+5. **Testen und Debugging:**
+   - Geben Sie den Teilnehmern Zeit, um diese Aufgabe durchzuführen, und bieten Sie Unterstützung an, wo sie benötigt wird.
+   - Es ist wichtig, dass die Teilnehmer verstehen, wie die logische Struktur ihrer Programme funktioniert und wie sie durch die verschiedenen Zustände ihrer Programme navigieren können.
+
+#### Beispiel für die logische Struktur:
+
+- Wenn "status = 0", dann zeige Bild 1 und setze "status" auf 1.
+- Sonst wenn "status = 1", dann zeige Bild 2 und setze "status" auf 2.
+- Sonst wenn "status = 2", dann zeige Bild 3 und setze "status" auf 0 (oder einen anderen Anfangswert, um die Rotation fortzusetzen).
+
+Durch diese Übung lernen die Teilnehmer, wie sie komplexe logische Strukturen in ihren Programmen einbauen und nutzen können, um interaktive und dynamische Projekte zu erstellen. Es hilft auch, ein tieferes Verständnis für die Verwendung von Variablen, Bedingungen und Aktionen in der Programmierung zu entwickeln.
