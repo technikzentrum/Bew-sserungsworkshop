@@ -1,0 +1,177 @@
+Ablauf:
+Aufbau wird mit einer stunde angesetzt:
+- Tische aufstellen, Laptops aufstellen, an stom anschließen, mäuse verbinden und einschalten, M5 Stack an strom anschließen und schauen ob sie grün leucten (mit WLAN, verbunden), Touch Fernsehr hochfahren, M5 Stack verbinden, indem auf dme Laptop die Webseite https://flow.m5stack.com/ geöffnet wird und UIFlow1.0 ausgewählt wird.
+dann sollte unten ein API-Schlüssen angezeigt sein, wenn nicht, siehe M5 Stack neu verbinden, wenn sc hlüssel steht, dann auf das aktualisieren symbol klicken, um sich mit einem m5 Stack zu verbinden, de rim internet ist, dann in de rmatrix oda drüber eine zahl doe rmuster schrieben ud auf run unte rechts klicken, damit sieht man welcher m5 Stack zu diesme Laptop gehört udn kann diese zusmamen auf den platz bringen., das für alle wiederholen und auch dem Presentator einen geben, da dieser daran alles vor machen kann.
+Der beispelcode aus diesem ordner wird auf den ESP vom presentator geladen.
+
+die Teilnehmer kommen an und es wird erstmal ca 5 -10 minuten gewartet bis alle da sind.
+dann wird der ablauf vorgestellt: 
+Vorstellung, Endergebniss, pause festlegen, 
+Wir stellen uns vor und dann fragen wir die teilnehmer, ob sie schon mal programmiert haben.
+dann zegen wir, was am ende raus kommen kann, dabei zeigen wir alle funktionen.
+Wir beschriben was programmierung so kann und zeigen den Telegramm bot um die schranke auf zu machen und betohnen, informatik ist für faule personen, die eigentlich nicht alles selbst amchen lassen wolen, sondern programme schrieben, ie diese aufgaben dann übernehmen. das ganze etwas asfüllen
+Dann wird m5.flow vorgestellt, dabei geht es um die matrik links und den run button.
+Die Teilnehmer sollen ein Bild/smilley oder sonst was malen, es wird vor gemacht und auch gezeigt wie man farben ändern kann.
+dann auf Run, NICHT Downlaod drükcen, dies bethonen.
+es wird geschaut ob es bei allen funktioniert.
+
+Aufgabe 2)
+Nun sollen die Teilnehmer das bauen von Code verstehen und verstehen wie sie die puzzleteile finden und welche wie aneinander gehen.
+
+Sie gehen auf Hardware und auf LED und können die slebe Matrik von dem Menue in das Fenster ziehen.
+Sie können es ins Feld ziehen und dort ist es Grau, alles was Grau ist wird nicht verwendte, sie müssen es an setup ziehen und dann können sie ein anderes Bild malen.
+
+Aufgabe 3) Bild erst ändern bei einem Knopfdruck.
+Jetzt können sie nur das zweite bild sehen, das wollen wir ändern, dafür sollen sie unter Ereignisse Taste A was Pressed auswählen und ihre LED Matrik da rein schieben.
+Wenn sie auf Run drücken, sehen sie das erste Bild und beim drücken auf das Display sehen sie das zweite Bild.
+
+Aufgabe 4) Nun geht es aber nicht zurück, deswegen kommt jetzt etwas mehr, es muss erklärt werden, was eine Varriable ist, also ein Notizzettel, auf dem man sich was merken kann.
+
+Wir müssen wissen, was wir als letztes für ein Bild angezeigt haben, deswegen erstellen wir eine Varriable mit dem Namen Status.
+Dafür gehen wir in de rListe auf Varriablen und dort auf Erzeuge Varriable, und dort geben wir status ein.
+es erscheinen 3 neue optionen. Dort nehmen wir Setze Staus auf, WICHTIG, nicht ändere.
+Wo wir jetzt einen Zettel haben um etwas zu merken, brauchen wir eine logische abfrage: Wenn Bild 1 zuletzt, dann bild 2 ansonsten Blld 1.
+und nach dem bild setzen müssen wir natürlich auf den Zettel schrieben was wir gemacht haben.
+Dafür gehen wir auf Logik: und nehmen das oberste Element (wen ... führe aus ..." mit dem Zahnrad.
+aus dem selben Logik menue nehmen wir noch den Vergleich das ... = ...
+Dies hat ein puzzleteil, was in den block von eben passt.
+Dies ist jetzt ein vergleich. unter varriable müssen wir den status in eine seoite der ... = .. rein packen udn in die andere seite unter Mathe eine Zahl.
+Die schüler müssen alles mit machen und es muss überprüft werden, ob sie mit gekommen sind und die optionen gefunden haben.
+Es sollte jetzt erklärt werden, was wir gemacht haben, dort steht, wenn status = 0 führe aus.
+Unter dem Zahnrad könnenw ir jetzt ein sonst hinufügen, jetzt haben wir schon die bedinung.
+In da sObere führe aus, kommt jetzt die LEDmatrik (Bild2) und unter sonst ein anderes Bild (LED Matrix)
+jetzt ehlt nur noch eine sache, wir mssen auf dne Zettel schrieben, also aus Varriablen setze status auf 0 oder 1, die Zahl bekommen wir aus Mathe.
+Wenn wir jetzt auf Run drücken sehen wir beim start Bild 1 und beim ersten drücken Bild 3 und beim erneuten drücken Bild 2 und beim erneuten drücken Bild 3.
+
+Nächte Aufgabe:
+Transphare aufgabe, sie sollen einen drtten Bildschirm anzeigen, der auch durch rotiert mit den TAste drücken.
+
+Dafür müssen sie in der Bedinung auf da sZahrad und ein Sonst wenn hinzufügen, das zeigen und dann 10 minuten Zeit geben für das schaffen der Shcülern, dabei sehr viel Hilfe geben,w enn sie sie haben möchten
+also mache weiter wie ebenmit Aufgabe 5
+
+Aufgabe 6: 
+Logik und Aktion trennen
+Wir wollen einen Lopp haben, so das immer code ausgeführt wird und die button drücke trennen von der logik.
+
+Dafür wird unter Ereignisse die Schleife genommen und erklärt.
+Da rein kann jetzt die ganze Logische abfiolge, wichtig ist zu zeigen, dass jetzt die aktion jede ms ausgeführt wird und wir das setzen der Varriable auslagrn müssen, also brauchen wir eigentlich 2 mal die ligische abfrage was bisher war und was jetzt kommt.
+
+Wieso das ganze?
+Wir wollen den zustand später auch durch ander eereignisse ändern können, deswegen trennen wir die eingabe und ausgabe voneinander.
+
+Für den aufbau:
+wir kopieren den logischen block, indem wir mit der rechten maustaste drauf gehen udn duplizieren drücken.
+Dann schieben wir einen von den beiden in die Loop.
+Bei der im Loop entfernen wir das setzen der varriable und beid er im tastendruck das setzen der Bilder.
+
+Fertig.
+
+Aufgabe 7:
+LED Matrik nur einmal setzen und nicht jede sekunde.
+Wir müssen uns merken, was gerade angezeigt wird und zusätzlich, ob sich etwas verändert hat.
+Dafür bauen wir eine varriable, welche wir geändert nennen.
+Diese setzen wir mit Varriable setze Varriable auf 1 jedes mal, wenn wir den Button drücken und auf 0, jedes mal, wenn wir in der schleife die logische abfrage auswerten.
+Jetzt benötigen wir eine Logische abfragr, um den logischen block in der Scleife, welcher abfragt, wenn geändert = 1 führe aus, den vorherigen logischen block.
+
+Somit wird der das display update nur einmal gemacht, wenn geändert auf 1 gesetzt wurde.
+
+Aufgabe 8: 
+Timeout: automatische Notabschaltung
+Wir wollen, das dass system, nach einer gewissen Zeit sich selbst abschaltet, damit es im späteren verlauf nicht die Wohnugn überflutet.
+Dafür sagen wir, wenn das wasser länger als 15 sekunden läuft, dann stimmt etwas ncht und wir schalten alles aus und zeigen Fehler an, bis der Knopf noch einmal gedrückt wird.
+
+Um das umzusetzen, brauchen wir einen zeit zähler, das könnenw ir über einen Timer machen.
+Ereignis -> timer  Callback timer1 und platzieren den irgenwo, so das er nicht verbudnen ist.
+da rein setzen wir setze status auf 10, und 10 ist dabei unserer Fehlerzustand.
+jetzt müssen wir den Timer starten, das machen wir mit Erignis -> Start timer1 period 15000 ms mode oneshot
+Damit wird eine stoppuhr gestartet, die einmalig nach 15 sekunden oder 15000 ms den inhalt in imercallback ausführt.
+Dies müssen wir jetzt in jeden status machen, welcher eine aktion ausführt.
+Also sagen wir status 2 und 3.
+
+Jetzt passirt aber noch nchts bei status 10, deswegen ist jetzt die transphere aufgabe, den status 10 slebst hinzuzufügen und auch das geändert an der richtigen stelle zu setzen.
+
+Danach machen wir Pause und begeistern die Teilnehmer, das nach der Pause es mit dem Wassersensor und praktischen aufgaben weiter geht.
+
+Aufgabe 9:
+HAndy verbinden.
+Um sachen sehen zu können, erstellen wir eine verbindung mit einem HAndy oder dem PC.
+Dafür gehen wir auf Fernbedinung+
+Dort zieen wir von rechts das Feld [123] auf das angezeigte Handy
+damit haben wir auf de rwebseite ein anzeigefeld, durch klicken des "Run" buttons wird neuer code erzeugt, welcher mittig erscheint.
+erst ab dann kann über dme handy der QR-Code angeklickt werden. und dieser mit dem HAndy gescannt oder mit einem klick kopiert werden. auf der Webseite sieht man jetzt den text 123.
+Dioeser Text kann jetzt geändert werden, wenn in dem Blauen neuem Feld z.b. anstelle des label die varriable status angefügt wird.
+Bitte auf Rund rücken und testen, ob sich der status ändert, achtung die websiete aktulisiert sich nur alle 3 sekunden, es kann also etwas dauern.
+
+Aufgabe 10:
+Der Wasser Sensor:
+in der Oberfläche ist unter der linken Matrix ein Schriftzug Units
+und da drunter ein weißes +
+da müssen alle drauf drücken und in der sich öffnenden suche Wa eingeben, dann ist das erste WATERING und dort muss drauf geklickt werden.
+dannach auf ok unten rechts
+Jetzt haben wir in unseren auswählbaren aktionen Einheit (1) und da drinn Watering.
+Die drei aktionen sind recht einfach zu verstehen, das get Watering_0 adc value gibt einen wert zwischen 2048 und 0 zurück, welcher in korellation zu dem gemessenen feuchtigkeitswert liegt.
+Set Watering_0 pump Status Off/On schaltet die pumpe Aus oder Ein.
+Wir fangen mit dem lesen des wertes an.
+Dafür ziehen wir uns das get Watering_0 adc value in das Fenster an das label der Fernbdeinung+.
+Jetzt wenn wir auf Run gedrückt haben sollten wir die aktuelle feuchtigkeit auf der weoberflöche sehen können.
+um 3 schwellwerte festzulegen sollten wir den wert aufschrieben,w elcher bei keiner berührung zu sehen ist und diesen minus 50 nehmen, um etwas schwankungen auszugkleichen.
+für einen anderen wert nehmen wir den sensor unten locker in die hand und umschließen ihn, da unsere hände leicht feucht sind sollte sich der wert verändern. Diesen wert plus 50 schrieben wir auch auf. als letztes umschließen wir den sensor fest mit der HAnd und schrieben deswen wert plus 50 auch auf, damit haben wir unsere drei werte um die feuchtigkeit zu messen.
+
+Aufgabe 11:
+auswertung der feuchtigkeit und setzen des stauses.
+Achtung diese Aufgabe ist etwas komplexer.
+Wir wollen, wenn der wert über dem aufgeschriebenen nichts wert liegt in status 1, wenn er über dem zweiten wert liegt in status 2 und wenn er unter dem 2ten wert liegt in status 3
+
+Dafür erstellen wir über der bisherigen auswertung eine neune bedinung Wenn führe aus, sonst wenn führe aus, sonst.
+Das sind unsere drei möglichkeiten.
+Dafür brauchen wir die erste, da machen wir einen vergleich mit >, auf die eine seite kommt aus Einheiten->Watering->get Watering_0 adc value und auf die rechte seite aus Mathe der aufgeschriebene wert.
+Die Teilnehmer sollen jetzt die zweite bedinung slebst erstellen.
+In die bedinungen kommt ein setze Status auf den eweiligen status.
+
+Wenn der code so getestet wird, wird nichts passieren, da wir geändert nicht setzen, für diese aufgabe setzen wir den geändert varriable auf 1 jedes mal, wenn wir den status setzen.
+
+Aufgabe 12:
+Status nur setzen, wenn er sich geändert hat.
+Um zu sehen ob der sttus der selbe ist wie vorher, können wir eine einfache varriable mit letzter status erstellen.
+und eine Bedinung, wenn status != letzterStaus, dann setze letzter staus auf status und geändert auf 1, das geänert = 1 muss aus allen anderen optionen raus genommen werden.
+
+Aufgabe 13:
+Jetzt soll bitte alles getestet werden.
+Funktioniert das ändern der LED matrik beim umschließen des Sensors, funktioniert die not abschaltung beim zu langen umschließen, blebt der notaus bestehen, bis der knopf gedrückt wird?
+Um den Notaus auch permanent zu machen, müssen wir die bedinung hinzufügen, dass wenn status = 10 ist, wir den status nicht ändern, die Teilnehmer sollen das selbst umsetzen, genau wie damals mit geändert, nur dass sie keine neue varriable brauchen.
+
+Wenn alles bei allen läuft, geht es mit dem Wasser los:
+
+Aufgabe 14:
+Jede gruppe bekommt ein leeres Glas, wo die schläche rein können:
+Achtung aus den schläcuhen kann etwas wasser kommen.
+Setzt Einheiten (1) -> Watering -> Set Watering_0 pump status Off bei status 1 ein udn bei status 10
+Setzt Einheiten (1) -> Watering -> Set Watering_0 pump status ON bei status 2 ein udn bei status 3
+
+Testet ob die pumpe so reagiert wie ihr erwartet, wenn es klappt dann bekommt ihr ein Wasserglas und könnt das Wasser von einem in das andere Glas pumpen.
+
+Aufgabe 15:
+Anpassung des beiherigen Ergebnisses, die Teilnehmer bekommen Zeit die Bilder zu ändern und wenn sie wollen die ADC values anzupassen, an eine echte Pflanze (Achtung, wenn Pflanze nass, dann bleibt sie länger nass. Ansonsten können sie etwas spielen mit dem Wasser an und den Not asu und eventuell der Zeit vomNot aus.
+
+Aufgabe 16:
+Status 2 anpassen.
+Beim status 2 soll die Pumpe nur halb so schnell laufen.
+dies kann durch schnelles ein und aus schalten gelingen.
+Dies können wir durch einen timer_2 erzielen, der Callback wird in das Fenste rgezogen und 
+ damit ertselt.
+dieser wird einmalig gestarten auf periodic gesetzt, bei 50ms
+nun kommt in den clalback eine bedinung, welche die oume ein und aus schaltet, bei jedem anderen mal, dies wird wieder mit einer varriable erzielt, die jedes mal geändert wird, wie das beispiuel ganz am anfang. (etwas ausführliche rmachen)
+Der teimer sollte gestoppt werden, das machen wir indem wir Stop  timer_2 in der abfrage ob sich der status geändet hat hinzufügen.
+Testen
+
+Fertig, alles was wir wollen wurde geschafft.
+Jetzt sind hier noch optionale Aufgaben, fals die Zeit reicht:
+
+Weboberfläche erweitern:
+- Status als Text anzeigen
+- Button auf weboberfläche um fehler zurück zu setzen
+- Zeit anzeigen, wie lange der aktuelle status schon so ist.
+- (Experten) wassergeschwindigkeit mit slider einstellen für status 2
+
+LED Matrix, animation erstellen (timer, der bilder durch spielz)
+denke dir weitere einfache optionen aus

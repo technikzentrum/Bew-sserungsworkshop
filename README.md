@@ -119,3 +119,186 @@ In dieser Aufgabe werden die Teilnehmer lernen, wie sie einen dritten Bildschirm
 - Sonst wenn "status = 2", dann zeige Bild 3 und setze "status" auf 0 (oder einen anderen Anfangswert, um die Rotation fortzusetzen).
 
 Durch diese Übung lernen die Teilnehmer, wie sie komplexe logische Strukturen in ihren Programmen einbauen und nutzen können, um interaktive und dynamische Projekte zu erstellen. Es hilft auch, ein tieferes Verständnis für die Verwendung von Variablen, Bedingungen und Aktionen in der Programmierung zu entwickeln.
+
+Diese Schritte führen die Teilnehmer durch fortgeschrittene Konzepte der Ereignisbehandlung, Zustandsverwaltung und Ablaufsteuerung mit dem m5Stack und UIFlow. Durch das Trennen von Logik und Aktionen sowie das Einführen von Zeitsteuerung und Zustandsänderungen durch externe Ereignisse erhalten die Teilnehmer ein tieferes Verständnis für die Erstellung von interaktiven und reaktiven Programmen.
+
+### Aufgabe 6: Logik und Aktion trennen
+
+1. **Einführung in Ereignisschleifen:**
+   - Unter "Ereignisse" finden Sie die Option für eine kontinuierliche Schleife. Erklären Sie, dass in diese Schleife die gesamte logische Abfolge integriert wird.
+
+2. **Aufteilung der Logik und Aktion:**
+   - Duplizieren Sie den logischen Block (Rechtsklick > Duplizieren) und platzieren Sie eine Kopie in die Schleife.
+   - Entfernen Sie in der Schleifen-Version die Aktion des Bildwechsels und behalten Sie nur die logische Zustandsüberprüfung.
+   - Im Ereignisblock (z.B. Button-Druck) entfernen Sie die Logik und behalten nur die Aktion des Bildwechsels und das Setzen der Variablen.
+
+3. **Zweck der Trennung:**
+   - Erklären Sie, dass durch diese Trennung die Möglichkeit geschaffen wird, Zustandsänderungen auch durch andere Ereignisse einzuleiten, was die Flexibilität des Programms erhöht.
+
+### Aufgabe 7: Optimierung der LED-Matrix-Anzeige
+
+1. **Vermeidung ständiger Aktualisierungen:**
+   - Führen Sie eine neue Variable ein, z.B. "geändert", um zu verfolgen, ob eine Änderung stattgefunden hat.
+
+2. **Logik für einmalige Aktualisierung:**
+   - Setzen Sie "geändert" auf 1 bei jedem Button-Druck und auf 0 nach der Auswertung der logischen Abfrage in der Schleife.
+   - Fügen Sie eine Bedingung hinzu, die überprüft, ob "geändert = 1" ist, und führen Sie dann den logischen Block aus, um die LED-Matrix nur bei tatsächlichen Änderungen zu aktualisieren.
+
+### Aufgabe 8: Implementierung einer automatischen Notabschaltung
+
+1. **Timer zur Zeitüberwachung:**
+   - Erstellen Sie einen Timer (unter "Ereignisse" > "timer Callback timer1"), der nicht direkt mit anderen Blöcken verbunden ist.
+   - Setzen Sie im Timer-Callback "status" auf einen Fehlerzustand, z.B. 10.
+
+2. **Timer starten:**
+   - Starten Sie den Timer mit "Ereignis" > "Start timer1 period 15000 ms mode oneshot" in den Zuständen, die eine Aktion ausführen (z.B. Status 2 und 3).
+
+3. **Behandlung des Fehlerzustands:**
+   - Die Teilnehmer sollen nun selbst den Fehlerzustand (z.B. Status 10) implementieren und sicherstellen, dass "geändert" korrekt gesetzt wird, um die Anzeige zu aktualisieren.
+
+### PAUSE:
+
+### Aufgabe 9: Handy verbinden
+
+1. **Fernbedienung+ nutzen:**
+   - Wählen Sie in UIFlow die Option "Fernbedienung+" aus.
+   - Ziehen Sie das Feld [123] auf das angezeigte Handy-Interface, um ein Anzeigefeld zu erstellen.
+
+2. **QR-Code generieren und scannen:**
+   - Durch das Klicken auf "Run" wird neuer Code erzeugt, der einen QR-Code enthält.
+   - Dieser QR-Code kann gescannt oder über einen Klick kopiert werden, um die Verbindung mit einem Handy oder PC herzustellen.
+
+3. **Anzeige von Daten:**
+   - Ändern Sie den angezeigten Text von [123] auf die Variable "status", um den Status über die Fernbedienung anzuzeigen.
+   - Testen Sie die Aktualisierung auf dem Handy oder PC. Beachten Sie, dass die Webseite sich nur alle 3 Sekunden aktualisiert.
+
+### Aufgabe 10: Der Wasser Sensor
+
+1. **Wasser Sensor hinzufügen:**
+   - Klicken Sie unter "Units" auf das weiße Pluszeichen (+) und suchen Sie nach "Wa" für den Wassersensor ("WATERING").
+   - Fügen Sie den Wassersensor zur Liste Ihrer verfügbaren Aktionen hinzu.
+
+2. **Feuchtigkeitswert lesen:**
+   - Ziehen Sie den Block "get Watering_0 adc value" in Ihr Arbeitsfenster, um den aktuellen Feuchtigkeitswert zu messen.
+   - Platzieren Sie diesen Block, um den Wert auf der Fernbedienung+ anzuzeigen.
+
+3. **Schwellwerte festlegen:**
+   - Notieren Sie den ADC-Wert bei keiner Berührung und ziehen Sie 50 ab, um Schwankungen auszugleichen.
+   - Halten Sie den Sensor locker, um einen feuchten Wert zu messen, und ziehen Sie 50 von diesem Wert ab.
+   - (optional)Umschließen Sie den Sensor fest, um einen sehr feuchten Wert zu messen, und addieren Sie auch hier 50.
+
+### Aufgabe 11: Auswertung der Feuchtigkeit und Setzen des Status
+
+1. **Bedingungen für Feuchtigkeitswerte festlegen:**
+   - Fügen Sie einen "wenn ... dann ... sonst wenn ... sonst"-Block ein.
+   - Für die erste Bedingung verwenden Sie einen Vergleichsoperator (>) und vergleichen Sie den ADC-Wert des Wassersensors ("get Watering_0 adc value") mit dem niedrigsten aufgeschriebenen Wert für "nichts Wert".
+
+2. **Erstellung der zweiten Bedingung:**
+   - Die Teilnehmer sollen nun basierend auf den zuvor aufgeschriebenen Werten die zweite Bedingung selbst erstellen.
+   - Diese Bedingung überprüft, ob der Feuchtigkeitswert über dem mittleren Wert liegt (zweiter Wert), und setzt den Status entsprechend.
+
+3. **Aktualisierung der "geändert"-Variable:**
+   - Um sicherzustellen, dass Änderungen angezeigt werden, setzen Sie die Variable "geändert" auf 1, jedes Mal wenn der Status geändert wird.
+
+### Aufgabe 12: Status nur bei Änderung setzen
+
+1. **Einführung einer neuen Variable:**
+   - Erstellen Sie eine Variable, z.B. "letzterStatus", um den vorherigen Statuswert zu speichern.
+
+2. **Überprüfung auf Statusänderung:**
+   - Implementieren Sie eine Bedingung, die überprüft, ob der aktuelle Status sich vom "letzterStatus" unterscheidet.
+   - Wenn sich der Status geändert hat ("status != letzterStatus"), dann:
+     - Setzen Sie "letzterStatus" auf den aktuellen "status".
+     - Setzen Sie "geändert" auf 1, um anzuzeigen, dass eine Aktualisierung erforderlich ist.
+   - Entfernen Sie die Aktualisierung der "geändert"-Variable aus allen anderen Bedingungen, damit sie nur innerhalb dieser neuen Logik vorgenommen wird.
+
+Diese Aufgaben führen die Teilnehmer durch den Testprozess ihrer bisherigen Arbeit und leiten sie dann zu einem praktischen Experiment mit Wasser und dem Wassersensor. Es geht darum, das Verständnis und die Anwendung der gelernten Konzepte in einem realen Kontext zu überprüfen und zu festigen.
+
+### Aufgabe 13: Testen der gesamten Konfiguration
+
+1. **Überprüfen der Funktionalitäten:**
+   - Stellen Sie sicher, dass die LED-Matrix sich ändert, wenn der Sensor umschlossen wird.
+   - Überprüfen Sie, ob die automatische Notabschaltung aktiviert wird, wenn der Sensor zu lange umschlossen bleibt.
+   - Testen Sie, ob der Notaus-Zustand bestehen bleibt, bis eine Taste gedrückt wird, um ihn zurückzusetzen.
+
+2. **Permanente Notabschaltung implementieren:**
+   - Führen Sie eine Bedingung ein, die verhindert, dass der Status geändert wird, wenn der aktuelle Status gleich 10 ist. Dies soll sicherstellen, dass der Notaus-Zustand bestehen bleibt, bis er manuell zurückgesetzt wird.
+   - Die Teilnehmer sollen diese Bedingung eigenständig implementieren, ähnlich dem Vorgehen bei der "geändert"-Variable, ohne jedoch eine neue Variable einzuführen.
+
+### Aufgabe 14: Praktisches Experiment mit Wasser
+Diese logik ist invertiert, damit es nicht zu unfällen kommt
+
+1. **Vorbereitung des Experiments:**
+   - Jede Gruppe erhält ein leeres Glas, in das die Schläuche des Wassersensors und der Pumpe gelegt werden können. Es sollte beachtet werden, dass aus den Schläuchen zunächst etwas Wasser austreten kann.
+
+2. **Programmierung der Pumpe:**
+   - Programmieren Sie die Pumpe so, dass sie sich ausschaltet (Status Off), wenn der Status auf 1 oder 10 gesetzt ist. Dies verhindert das Pumpen von Wasser in unerwünschten Zuständen.
+   - Stellen Sie die Pumpe so ein, dass sie eingeschaltet wird (Status On), wenn der Status auf 2 oder 3 gesetzt ist. Dies ermöglicht das Pumpen von Wasser, basierend auf den Feuchtigkeitsmesswerten des Sensors.
+
+3. **Durchführung des Experiments:**
+   - Testen Sie, ob die Pumpe wie erwartet reagiert. Wenn ja, erhalten die Teilnehmer ein Wasserglas, um das Wasser von einem Glas in ein anderes zu pumpen.
+
+Durch das Testen und das praktische Experiment mit dem Wasser lernen die Teilnehmer nicht nur die theoretischen Grundlagen, sondern auch, wie diese in praktischen Anwendungen umgesetzt werden können. Es demonstriert die Wichtigkeit von genauen Tests und Anpassungen in der Entwicklung von Projekten, die auf physischen Interaktionen basieren.
+
+Diese Aufgaben ermutigen die Teilnehmer, ihre Projekte weiter zu verfeinern, indem sie Anpassungen basierend auf realen Bedingungen vornehmen und zusätzliche Funktionalitäten wie die Steuerung der Pumpgeschwindigkeit implementieren.
+
+### Aufgabe 15: Anpassungen und Experimente
+
+1. **Bildanpassungen:**
+   - Die Teilnehmer erhalten Zeit, um die Bilder auf der LED-Matrix nach Belieben zu ändern. Sie können kreativ sein und Designs erstellen, die ihrer Meinung nach die verschiedenen Feuchtigkeitszustände am besten darstellen.
+
+2. **Anpassung der ADC-Werte:**
+   - Falls gewünscht, können die Teilnehmer die ADC-Schwellwerte anpassen, um sie an die Feuchtigkeitsbedingungen einer echten Pflanze anzupassen. Sie sollten bedenken, dass eine nasse Pflanze länger nass bleibt.
+
+3. **Experimentieren mit dem System:**
+   - Die Teilnehmer können mit der Wasserpumpe experimentieren, indem sie den Notaus-Zustand testen oder die Zeit bis zur automatischen Abschaltung anpassen, um zu sehen, wie das System auf verschiedene Bedingungen reagiert.
+
+### Aufgabe 16: Anpassung von Status 2 für langsamere Pumpgeschwindigkeit
+
+1. **Einrichtung eines Timers:**
+   - Erstellen Sie einen neuen Timer (timer_2) und setzen Sie ihn auf periodisch mit einem Intervall von 50ms. Dieser Timer wird verwendet, um die Pumpe in kurzen Intervallen ein- und auszuschalten, um eine halbe Geschwindigkeit zu simulieren.
+
+2. **Programmierung des Callbacks:**
+   - Ziehen Sie den Callback für timer_2 in Ihr Arbeitsfenster und erstellen Sie darin eine Bedingung, die prüft, ob die Pumpe ein- oder ausgeschaltet werden soll. Verwenden Sie eine Variable, um den Zustand (ein/aus) bei jedem Timer-Intervall zu wechseln.
+
+3. **Anpassung beim Statuswechsel:**
+   - Um sicherzustellen, dass die Pumpe nicht weiterläuft, wenn der Status sich ändert, fügen Sie die Aktion "Stop timer_2" in die Bedingung ein, die überprüft, ob sich der Status geändert hat. Dies stoppt die Pumpe, wenn der Status nicht mehr 2 ist.
+
+4. **Testen der Anpassungen:**
+   - Nachdem die Teilnehmer die Timer-Logik implementiert haben, sollten sie das System testen, um sicherzustellen, dass die Pumpe bei Status 2 mit der gewünschten, halbierten Geschwindigkeit läuft und dass der Timer korrekt gestoppt wird, wenn der Status wechselt.
+
+Durch diese Anpassungen und Tests lernen die Teilnehmer, wie man ein System feinabstimmt und auf spezifische Anforderungen reagiert. Sie erfahren auch, wie wichtig es ist, die Funktionalität ihres Systems unter verschiedenen Bedingungen zu überprüfen und anzupassen, um eine optimale Leistung zu erzielen.
+
+Falls zusätzliche Zeit zur Verfügung steht, können diese optionalen Aufgaben den Teilnehmern helfen, ihr Verständnis und ihre Fähigkeiten im Umgang mit dem m5Stack und UIFlow weiter zu vertiefen. Diese Aufgaben erweitern die Interaktivität und Funktionalität ihres Projekts und bieten Möglichkeiten für kreativen Ausdruck und technische Verfeinerung.
+
+### Weboberfläche erweitern
+
+1. **Status als Text anzeigen:**
+   - Integrieren Sie ein Textfeld auf der Weboberfläche, das den aktuellen Status als lesbaren Text darstellt, z.B. "Trocken", "Feucht", "Nass", "Notaus".
+
+2. **Button zum Zurücksetzen des Fehlers:**
+   - Fügen Sie einen Button hinzu, mit dem der Nutzer einen Fehlerzustand (z.B. den Notaus) zurücksetzen kann, um die normale Funktionsweise ohne physischen Eingriff am m5Stack wiederherzustellen.
+
+3. **Zeitanzeige für aktuellen Status:**
+   - Implementieren Sie eine Funktionalität, die anzeigt, wie lange der aktuelle Status bereits aktiv ist. Dies kann durch eine einfache Zeitstempel-Logik erreicht werden, die bei jeder Statusänderung zurückgesetzt wird.
+
+4. **(Experten) Wassergeschwindigkeit mit Slider einstellen:**
+   - Für fortgeschrittene Teilnehmer kann eine Option hinzugefügt werden, um die Geschwindigkeit der Wasserpumpe für Status 2 über einen Slider auf der Weboberfläche einzustellen. Dies erfordert eine Anpassung der Timer-Logik und eventuell die Implementierung einer dynamischen Steuerung der Ein-/Ausschaltintervalle basierend auf dem Slider-Wert.
+
+### LED-Matrix Animationen
+
+1. **Animationen erstellen:**
+   - Nutzen Sie Timer, um verschiedene Bilder oder Muster auf der LED-Matrix in einer Animation abzuspielen. Dies kann dazu dienen, den aktuellen Feuchtigkeitszustand oder den Betriebsmodus auf eine visuell ansprechende Weise darzustellen.
+
+### Weitere einfache Optionen
+
+1. **Akustische Signale:**
+   - Integrieren Sie akustische Signale für bestimmte Ereignisse oder Statusänderungen, um eine zusätzliche Feedbackebene zu bieten.
+
+2. **Farbänderungen auf der LED-Matrix:**
+   - Verwenden Sie Farbänderungen auf der LED-Matrix, um unterschiedliche Zustände oder Warnungen zu signalisieren, z.B. könnte Rot einen Notaus-Zustand darstellen.
+
+3. **Datenspeicherung:**
+   - Implementieren Sie eine einfache Datenspeicherung oder -protokollierung für Ereignisse wie Statusänderungen, Notaus-Aktivierungen oder Feuchtigkeitswerte. Dies kann für spätere Analysen oder zur Überwachung der Pflanzengesundheit nützlich sein.
+
+Durch die Arbeit an diesen optionalen Aufgaben können die Teilnehmer nicht nur ihr Projekt erweitern, sondern auch wertvolle Erfahrungen in der Entwicklung von interaktiven und benutzerfreundlichen Anwendungen sammeln.
